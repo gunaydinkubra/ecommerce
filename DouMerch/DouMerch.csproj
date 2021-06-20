@@ -510,10 +510,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\User\NewUser.cshtml" />
-    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\ProductDetail\ProductDetail.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_HeaderHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

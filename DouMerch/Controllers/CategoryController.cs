@@ -16,7 +16,7 @@ namespace DouMerch.Controllers
         // GET: Category
 
         [HttpGet]
-        public ActionResult Category()
+        public ActionResult Index()
         {
             var db = new Context();
             var data = db.Category.ToList();

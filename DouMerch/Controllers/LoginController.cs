@@ -29,7 +29,7 @@ namespace DouMerch.Controllers
                 name.Value = Server.UrlEncode($"{ user.Name} {user.Surname}");
                 Response.Cookies.Add(name);
 
-                return Redirect("/Category/Category");
+                return Redirect("/Category/");
                 //return View("/Views/Category/CategoryView.cshtml");
             }
             else
