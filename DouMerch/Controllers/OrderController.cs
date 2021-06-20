@@ -17,6 +17,7 @@ namespace DouMerch.Controllers
         [HttpGet]
         public ActionResult Order(long? userId)
         {
+            userId = 1;
             var db = new Context();
             List<OrderModel> data = null;
             if (userId.HasValue && userId != 0)
@@ -55,7 +56,7 @@ namespace DouMerch.Controllers
 
             ViewData["Success"] = $"Successfull! Your Order is created. ";
 
-            return View();
+            return Redirect("/Main");
         }
     }
 }

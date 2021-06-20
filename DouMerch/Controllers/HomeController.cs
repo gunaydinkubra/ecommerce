@@ -25,9 +25,9 @@ namespace DouMerch.Controllers
             if (user != null && user.Password == data.Password)
             {
                 FormsAuthentication.SetAuthCookie(data.Email, true);
-                HttpCookie name = new HttpCookie("NameCookie");
-                name.Value = $"{ user.Name} {user.Surname}";
-                Response.Cookies.Add(name);
+                HttpCookie id = new HttpCookie("Id");
+                id.Value = $"{ user.Id}";
+                Response.Cookies.Add(id);
 
                 HttpCookie name2 = new HttpCookie("UserType");
                 name2.Value = $"{(int)user.UserType}";

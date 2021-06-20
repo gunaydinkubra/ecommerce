@@ -3421,3 +3421,10 @@ th, td {
     padding: 10px;
     border-radius: 5px;
 }
+
+. login-page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 16%;
+    margin-top: 150px;
+}

@@ -10,8 +10,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     </div>
 }
-<div class="container col-md-offset-4">
-    <h2>Login Space</h2>
+<div class="container col-md-offset-4 login-page">
     @using (Html.BeginForm("Login", "Home", FormMethod.Post))
     {
         @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Please enter e-mail" })<br />
