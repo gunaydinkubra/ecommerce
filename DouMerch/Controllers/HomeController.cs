@@ -26,9 +26,12 @@ namespace DouMerch.Controllers
             {
                 FormsAuthentication.SetAuthCookie(data.Email, true);
                 HttpCookie name = new HttpCookie("NameCookie");
-                name.Value = Server.UrlEncode($"{ user.Name} {user.Surname}");
+                name.Value = $"{ user.Name} {user.Surname}";
                 Response.Cookies.Add(name);
 
+                HttpCookie name2 = new HttpCookie("UserType");
+                name2.Value = $"{(int)user.UserType}";
+                Response.Cookies.Add(name2);
 
                 return Redirect("/Main");
                 //return View("/Views/Category/CategoryView.cshtml");
@@ -36,7 +39,7 @@ namespace DouMerch.Controllers
             else
             {
                 ViewData["Warning"] = $"{data.Email} is not found.";
-                return View();
+                return Redirect("/");
             }
 
 
