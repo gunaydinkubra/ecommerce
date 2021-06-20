@@ -40,7 +40,7 @@ namespace DouMerch.Controllers
                                 ModelState.Clear();
                                 ViewData["Success"] = $"Successfull! Your information is saved. ";
 
-                                return View();
+                                return Redirect("/");
                             }
 
                         }
