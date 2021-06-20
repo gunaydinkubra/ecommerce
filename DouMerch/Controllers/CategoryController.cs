@@ -13,6 +13,16 @@ namespace DouMerch.Controllers
     [SessionControl]
     public class CategoryController : Controller
     {
+
+        [HttpGet]
+        public ActionResult EditCategory(long categoryId)
+        {
+            var db = new Context();
+            var data = db.Category.Where(w => w.Id == categoryId).FirstOrDefault();
+            return View("_EditCategory", data);
+        }
+
+
         // GET: Category
 
         [HttpGet]
@@ -45,7 +55,7 @@ namespace DouMerch.Controllers
                 ModelState.Clear();
                 ViewData["Success"] = $"Successfull! Your Category is updated. ";
 
-                return View();
+                return Redirect("/Category");
             }
 
             db.Category.Add(new CategoryModel
@@ -58,7 +68,7 @@ namespace DouMerch.Controllers
             db.SaveChanges();
             ViewData["Success"] = $"Successfull! Your Category is added. ";
 
-            return View();
+            return Redirect("/Category");
         }
 
         [HttpDelete]
@@ -73,12 +83,13 @@ namespace DouMerch.Controllers
             {
                 ViewData["Warning"] = "Category not found.";
 
-                return View();
+                return Redirect("/Category");
             }
 
             db.Category.Remove(getCategory);
+            db.SaveChanges();
             ViewData["Success"] = $"Successfull! Your Category is deleted. ";
-            return View();
+            return Redirect("/Category");
         }
     }
 }

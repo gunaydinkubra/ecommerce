@@ -1,0 +1,37 @@
+﻿@model DouMerch.Models.ProductModel
+@{
+    ViewBag.Title = "_EditProduct";
+}
+
+@using (Html.BeginForm("SaveOrUpdate", "Product", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>Id: </td>
+        <td>@Html.TextBox("Id")</td>
+    </tr>
+    <tr>
+        <td>Kategori Id: </td>
+        <td>@Html.TextBox("CategoryId")</td>
+    </tr>
+    <tr>
+        <td>Kategori Adı: </td>
+        <td>@Html.TextBox("Name")</td>
+    </tr>
+    <tr>
+        <td>Kategori Açıklaması: </td>
+        <td>@Html.TextBox("Description")</td>
+    </tr>
+    <tr>
+        <td>Image URL: </td>
+        <td>@Html.TextBox("Imageurl")</td>
+    </tr>
+    <tr>
+        <td>Image URL: </td>
+        <td>@Html.TextBox("Cost")</td>
+    </tr>
+    <tr>
+        <td colspan="2"><input class="add-category-button" type="submit" value="Kategori Düzenle"></td>
+    </tr>
+</table>
+}

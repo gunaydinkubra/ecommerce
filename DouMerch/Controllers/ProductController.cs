@@ -13,6 +13,19 @@ namespace DouMerch.Controllers
     [SessionControl]
     public class ProductController : Controller
     {
+
+        [HttpGet]
+        public ActionResult EditView(int? categoryId)
+        {
+            var db = new Context();
+            List<ProductModel> data = null;
+            if (categoryId.HasValue && categoryId != 0)
+                data = db.Products.Where(w => w.CategoryId == categoryId).ToList();
+            else
+                data = db.Products.ToList();
+            return View("_ProductLists",data);
+        }
+
         [HttpGet]
         public ActionResult Product(int? categoryId)
         {
@@ -47,7 +60,7 @@ namespace DouMerch.Controllers
                 ModelState.Clear();
                 ViewData["Success"] = $"Successfull! Your Product is updated. ";
 
-                return View();
+                return Redirect("/Product/EditView");
             }
 
             db.Products.Add(new ProductModel
@@ -62,7 +75,7 @@ namespace DouMerch.Controllers
             db.SaveChanges();
             ViewData["Success"] = $"Successfull! Your Product is added. ";
 
-            return View();
+            return Redirect("/Product/EditView");
         }
 
         [HttpDelete]
@@ -83,7 +96,7 @@ namespace DouMerch.Controllers
             db.Products.Remove(getProduct);
             db.SaveChanges();
             ViewData["Success"] = $"Successfull! Your Product is deleted. ";
-            return View();
+            return Redirect("/Product/EditView");
         }
 
 

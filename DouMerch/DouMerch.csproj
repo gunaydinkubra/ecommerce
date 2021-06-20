@@ -521,6 +521,9 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_HeaderHome.cshtml" />
     <Content Include="Views\Main\Index.cshtml" />
+    <Content Include="Views\Shared\_EditCategory.cshtml" />
+    <Content Include="Views\Shared\_EditProduct.cshtml" />
+    <Content Include="Views\Shared\_ProductLists.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

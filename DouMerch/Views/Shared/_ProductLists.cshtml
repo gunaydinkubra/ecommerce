@@ -1,0 +1,74 @@
+﻿@model List<DouMerch.Models.ProductModel>
+@{
+    ViewBag.Title = "DOUMERCH - Ürün Yönetim";
+}
+
+
+<div class="admin-panel">
+    <table class="category-table">
+        <tr>
+            <th>Kategori ID</th>
+            <th>Kategori Adı</th>
+            <th>Kategori Açıklaması</th>
+            <th>Image URL</th>
+            <th>Ürün Fiyatı</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+    <tr>
+        <td>@item.CategoryId</td>
+        <td>@item.Name</td>
+        <td>@item.Description</td>
+        <td>@item.ImageUrl</td>
+        <td>@item.Cost</td>
+        <td><a href="@Url.Action("EditProduct","ProductDetail", new { productId = @item.Id })">Düzenle</a></td>
+        <td>
+            @using (Html.BeginForm("Delete", "Product", new { productId = item.Id }, FormMethod.Post))
+            {
+                <input type="submit" value="Sil" />
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                @Html.AntiForgeryToken()
+
+            }
+        </td>
+    </tr>
+
+        }
+
+    </table>
+
+    <div class="add-category">
+        @using (Html.BeginForm("SaveOrUpdate", "Product", FormMethod.Post))
+        {
+        <table>
+            <tr>
+            <tr>
+                <td>Kategori Id: </td>
+                <td>@Html.TextBox("CategoryId")</td>
+            </tr>
+            <tr>
+                <td>Ürün Adı: </td>
+                <td>@Html.TextBox("Name")</td>
+            </tr>
+            <tr>
+                <td>Ürün Açıklaması: </td>
+                <td>@Html.TextBox("Description")</td>
+            </tr>
+            <tr>
+                <td>Image URL: </td>
+                <td>@Html.TextBox("ImageUrl")</td>
+            </tr>
+            <tr>
+                <td>Ürün Fiyatı: </td>
+                <td>@Html.TextBox("Cost")</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="add-category-button" type="submit" value="Yeni Ürün Ekle"></td>
+            </tr>
+        </table>
+        }
+    </div>

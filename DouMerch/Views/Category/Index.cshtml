@@ -1,1 +1,60 @@
-﻿<span>test</span>
+﻿@model List<DouMerch.Models.CategoryModel>
+@{
+    ViewBag.Title = "DOUMERCH Kategori Ekle / Düzenle / Sil";
+}
+
+<div class="admin-panel">
+    <table class="category-table">
+        <tr>
+            <th>Kategori Adı</th>
+            <th>Kategori Açıklaması</th>
+            <th>Image URL</th>
+            <th>Düzenle</th>
+            <th>Sil</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Imageurl</td>
+                <td><a href="@Url.Action("EditCategory","Category", new { categoryId = @item.Id })">Düzenle</a></td>
+                <td>
+                    @using (Html.BeginForm("Delete", "Category", new { categoryId = item.Id }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Sil" />
+                        @Html.HttpMethodOverride(HttpVerbs.Delete)
+                        @Html.AntiForgeryToken()
+
+                    }
+                </td>
+            </tr>
+
+        }
+
+    </table>
+
+    <div class="add-category">
+        @using (Html.BeginForm("SaveOrUpdate", "Category", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>Kategori Adı: </td>
+                    <td>@Html.TextBox("Name")</td>
+                </tr>
+                <tr>
+                    <td>Kategori Açıklaması: </td>
+                    <td>@Html.TextBox("Description")</td>
+                </tr>
+                <tr>
+                    <td>Image URL: </td>
+                    <td>@Html.TextBox("Imageurl")</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input class="add-category-button" type="submit" value="Yeni Kategori Ekle"></td>
+                </tr>
+            </table>
+        }
+    </div>
