@@ -85,5 +85,8 @@ namespace DouMerch.Controllers
             ViewData["Success"] = $"Successfull! Your Product is deleted. ";
             return View();
         }
+
+
+
     }
 }
