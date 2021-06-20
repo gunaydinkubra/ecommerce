@@ -21,5 +21,8 @@ namespace DouMerch.Models
         public decimal Cost { get; set; }
 
         public virtual CategoryModel Categories { get; set; }
+        public virtual ICollection<OrderModel> Orders { get; set; }
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using DouMerch.Db;
+﻿using DouMerch.Attributes;
+using DouMerch.Db;
 using DouMerch.Models;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,18 @@ using System.Web.Mvc;
 
 namespace DouMerch.Controllers
 {
+    [SessionControl]
     public class ProductController : Controller
     {
         [HttpGet]
-        public ActionResult Product(int categoryId)
+        public ActionResult Product(int? categoryId)
         {
             var db = new Context();
-            var data = db.Products.Where(w => w.CategoryId == categoryId).ToList();
-
+            List<ProductModel> data = null;
+            if (categoryId.HasValue && categoryId != 0)
+                data = db.Products.Where(w => w.CategoryId == categoryId).ToList();
+            else
+                data = db.Products.ToList();
             return View(data);
         }
 

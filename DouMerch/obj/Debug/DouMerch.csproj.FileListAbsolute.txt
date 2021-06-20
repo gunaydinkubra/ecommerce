@@ -261,7 +261,6 @@ C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\bin\Microsoft.AI.DependencyCol
 C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\bin\Microsoft.AI.Web.xml
-C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\obj\Debug\DouMerch.csprojAssemblyReference.cache
 C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\obj\Debug\DouMerch.Migrations.Database_Initializations.resources
 C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\obj\Debug\DouMerch.csproj.GenerateResource.cache
 C:\Users\kubra\OneDrive\Desktop\DouMerch\DouMerch\obj\Debug\DouMerch.csproj.CoreCompileInputs.cache

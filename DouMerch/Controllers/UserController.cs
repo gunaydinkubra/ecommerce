@@ -34,6 +34,7 @@ namespace DouMerch.Controllers
                             else
                             {
                                 data.CreatedDate = DateTime.Now;
+                                data.UserType = Enums.UserTypeEnum.Users;
                                 db.Users.Add(data);
                                 db.SaveChanges();
                                 ModelState.Clear();

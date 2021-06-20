@@ -17,6 +17,7 @@ namespace DouMerch.Models
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Imageurl { get; set; }
+        public virtual ICollection<ProductModel> Products { get; set; }
 
     }
 }
