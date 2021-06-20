@@ -13,7 +13,7 @@ namespace DouMerch.Attributes
             if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 if (!HttpContext.Current.Response.IsRequestBeingRedirected)
-                    filterContext.HttpContext.Response.Redirect("/Login/Login");
+                    filterContext.HttpContext.Response.Redirect("/");
             }
         }
     }
