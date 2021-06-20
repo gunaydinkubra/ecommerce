@@ -3,6 +3,7 @@ using DouMerch.Db;
 using DouMerch.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,14 +30,29 @@ namespace DouMerch.Controllers
         public ActionResult Order(OrderModel order)
         {
             var db = new Context();
-            db.Orders.Add(new OrderModel
-            {
-                UserId = order.UserId,
-                Address = order.Address,
-                ProductId = order.ProductId,
 
-            });
-            db.SaveChanges();
+            var userOrder = db.Orders.Where(w => w.UserId == order.UserId && w.ProductId == order.ProductId).FirstOrDefault();
+            if (userOrder != null)
+            {
+                userOrder.ItemCount = userOrder.ItemCount + order.ItemCount;
+                db.Orders.Attach(userOrder);
+                db.Entry(userOrder).State = EntityState.Modified;
+                db.SaveChanges();
+                ModelState.Clear();
+            }
+            else
+            {
+                db.Orders.Add(new OrderModel
+                {
+                    UserId = order.UserId,
+                    ItemCount = order.ItemCount,
+                    ProductId = order.ProductId,
+
+                });
+                db.SaveChanges();
+            }
+
+
             ViewData["Success"] = $"Successfull! Your Order is created. ";
 
             return View();

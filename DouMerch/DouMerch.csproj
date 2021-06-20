@@ -197,6 +197,10 @@
     <Compile Include="Migrations\202106191503117_category.designer.cs">
       <DependentUpon>202106191503117_category.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106201533303_OrderModified.cs" />
+    <Compile Include="Migrations\202106201533303_OrderModified.designer.cs">
+      <DependentUpon>202106201533303_OrderModified.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -273,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106191503117_category.resx">
       <DependentUpon>202106191503117_category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106201533303_OrderModified.resx">
+      <DependentUpon>202106201533303_OrderModified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
