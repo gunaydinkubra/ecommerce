@@ -14,7 +14,9 @@ namespace DouMerch.Models
         public long Id { get; set; }
         [ForeignKey("Users")]
         public long UserId { get; set; }
-        public string Address { get; set; }
+
+        public int ItemCount { get; set; }
+
         [ForeignKey("Products")]
         public long ProductId { get; set; }
 
