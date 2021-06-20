@@ -182,6 +182,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Db\Context.cs" />
     <Compile Include="Enums\UserTypeEnum.cs" />
@@ -512,6 +513,7 @@
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
+    <Content Include="Views\ProductDetail\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

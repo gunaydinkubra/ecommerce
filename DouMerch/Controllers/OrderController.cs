@@ -1,4 +1,5 @@
-﻿using DouMerch.Db;
+﻿using DouMerch.Attributes;
+using DouMerch.Db;
 using DouMerch.Models;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace DouMerch.Controllers
 {
+    [SessionControl]
     public class OrderController : Controller
     {
 

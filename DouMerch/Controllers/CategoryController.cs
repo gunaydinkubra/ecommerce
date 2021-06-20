@@ -60,5 +60,25 @@ namespace DouMerch.Controllers
 
             return View();
         }
+
+        [HttpDelete]
+        public ActionResult Delete(long categoryId)
+        {
+
+            var db = new Context();
+
+            var getCategory = db.Category.Where(w => w.Id == categoryId).FirstOrDefault();
+
+            if (getCategory == null)
+            {
+                ViewData["Warning"] = "Category not found.";
+
+                return View();
+            }
+
+            db.Category.Remove(getCategory);
+            ViewData["Success"] = $"Successfull! Your Category is deleted. ";
+            return View();
+        }
     }
 }

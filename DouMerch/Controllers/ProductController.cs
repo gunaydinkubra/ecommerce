@@ -64,5 +64,29 @@ namespace DouMerch.Controllers
 
             return View();
         }
+
+        [HttpDelete]
+        public ActionResult Delete(long productId)
+        {
+
+            var db = new Context();
+
+            var getProduct = db.Products.Where(w => w.Id == productId).FirstOrDefault();
+
+            if (getProduct == null)
+            {
+                ViewData["Warning"] = "Product not found.";
+
+                return View();
+            }
+
+            db.Products.Remove(getProduct);
+            db.SaveChanges();
+            ViewData["Success"] = $"Successfull! Your Product is deleted. ";
+            return View();
+        }
+
+
+
     }
 }
